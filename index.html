@@ -6,10 +6,35 @@
     </head>
 
     <body>
-
-        
-
         <script>
+
+            /*let playerSelection = prompt('Enter either Rock, Paper or Scissors');
+            
+            if (playerSelection.toLowerCase() == 'rock' || playerSelection.toLowerCase() == 'paper' || playerSelection.toLowerCase() == 'scissors' ){
+            
+            }else{
+                alert('Incorrect input! Refresh page to try again!');
+            }*/
+
+            function computerPlay(){
+                let computerOutput;
+                let random = Math.floor(Math.random() * 3);
+
+                if (random === 0){
+                    computerOutput = 'rock';
+                }else if(random === 1){
+                    computerOutput = 'paper';
+                }else if(random === 2){
+                    computerOutput = 'sissors';
+                }
+
+                return computerOutput;
+            }
+
+            /* To check whether the output would be random each time
+            console.log(computerPlay());
+            console.log(computerPlay());
+            console.log(computerPlay());*/     
 
         </script>
     </body>
