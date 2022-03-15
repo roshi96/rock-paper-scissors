@@ -58,8 +58,12 @@
 
                 for (let i = 0; i < 5; i++){
                     let playerInput = prompt('Enter either Rock, Paper or Scissors');
-            
-                    if (playerInput.toLowerCase() == 'rock' || playerInput.toLowerCase() == 'paper' || playerInput.toLowerCase() == 'scissors' ){
+                    
+                    if(playerInput === null){
+                        alert('Game Cancelled! Refresh page to play again!');
+                        i = 5;
+                    }else{
+                        if (playerInput.toLowerCase() == 'rock' || playerInput.toLowerCase() == 'paper' || playerInput.toLowerCase() == 'scissors' ){
                         
                         let a = playRound(playerInput, computerPlay());
 
@@ -71,7 +75,7 @@
                             computerWin++;
                             /*console.log(computerWin);*/
 
-                        }else if(playRound == 3){
+                        }else if(a == 3){
                             if(i < 0){
                                 i = 0;
                             }else{
@@ -79,27 +83,25 @@
                             }
                         }
                         
-                    }else{
-                        alert('Incorrect input!');
-                        if(i < 0){
-                            i = 0;
                         }else{
-                            i--;
+                            alert('Incorrect input!');
+                            if(i < 0){
+                                i = 0;
+                            }else{
+                                i--;
+                            }
                         }
                     }
+                    
                 }
 
                 if(playerWin > computerWin){
-                    alert('Congratulations! You Won.');
+                    alert('Congratulations! You Won! Refresh page to play again!');
                 }else if(playerWin < computerWin){
-                    alert('HA HA! You Lose.');
-                }else{
-                    alert('You Suck! You Drew. How?');
+                    alert('HA HA! You Lose! Refresh page to play again!');
                 }
 
                 console.clear();
-                game();
-
             }
 
             game();
