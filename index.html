@@ -67,21 +67,21 @@
                         
                         let a = playRound(playerInput, computerPlay());
 
-                        if(a == 1){
-                            playerWin++;
-                            /*console.log(playerWin);*/
+                            if(a == 1){
+                                playerWin++;
+                                /*console.log(playerWin);*/
 
-                        }else if(a == 2){
-                            computerWin++;
-                            /*console.log(computerWin);*/
+                            }else if(a == 2){
+                                computerWin++;
+                                /*console.log(computerWin);*/
 
-                        }else if(a == 3){
-                            if(i < 0){
-                                i = 0;
-                            }else{
-                                i--;
+                            }else if(a == 3){
+                                if(i < 0){
+                                    i = 0;
+                                }else{
+                                    i--;
+                                }
                             }
-                        }
                         
                         }else{
                             alert('Incorrect input!');
@@ -91,8 +91,7 @@
                                 i--;
                             }
                         }
-                    }
-                    
+                    }                    
                 }
 
                 if(playerWin > computerWin){
