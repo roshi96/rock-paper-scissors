@@ -34,13 +34,24 @@
             function playRound(playerSelection, computerSelection){
                 let outcome;
 
-                playerSelection.toLowerCase();
+                playerSelection = playerSelection.toLowerCase();
 
                 if(playerSelection === 'rock' && computerSelection === 'scissors' || playerSelection === 'paper' && computerSelection === 'rock' || playerSelection === 'scissors' && computerSelection === 'paper'){
+                    playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
+                    computerSelection = computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1);
+
                     outcome = 'You Win! ' + playerSelection + ' beats ' + computerSelection;
+                
                 }else if(playerSelection === 'scissors' && computerSelection === 'rock' || playerSelection === 'rock' && computerSelection === 'paper' || playerSelection === 'paper' && computerSelection === 'scissors'){
+                    playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
+                    computerSelection = computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1);
+
                     outcome = 'You Lose! ' + computerSelection + ' beats ' + playerSelection;
+                
                 }else{
+                    playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
+                    computerSelection = computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1);
+
                     outcome = 'Draw! ' + playerSelection + ' is the same as ' + computerSelection;
                 }
                 return outcome;
@@ -51,7 +62,8 @@
             console.log(computerPlay());
             console.log(computerPlay());*/
 
-            /*const playerSelection = 'PaPer';
+            /* To check whether the output would work for one round of Rock Paper Scissors
+            const playerSelection = 'PaPer';
             const computerSelection = computerPlay();
             console.log(playRound(playerSelection, computerSelection));*/
 
