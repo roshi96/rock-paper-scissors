@@ -7,15 +7,6 @@
 
     <body>
         <script>
-
-            /*let playerInput = prompt('Enter either Rock, Paper or Scissors');
-            
-            if (playerInput.toLowerCase() == 'rock' || playerInput.toLowerCase() == 'paper' || playerInput.toLowerCase() == 'scissors' ){
-            
-            }else{
-                alert('Incorrect input! Refresh page to try again!');
-            }*/
-
             function computerPlay(){
                 let computerOutput;
                 let random = Math.floor(Math.random() * 3);
@@ -33,6 +24,7 @@
 
             function playRound(playerSelection, computerSelection){
                 let outcome;
+                let winner;
 
                 playerSelection = playerSelection.toLowerCase();
 
@@ -40,22 +32,77 @@
                     playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
                     computerSelection = computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1);
 
-                    outcome = 'You Win! ' + playerSelection + ' beats ' + computerSelection;
-                
+                    console.log(outcome = 'You Win! ' + playerSelection + ' beats ' + computerSelection);
+                    winner = 1;
+
                 }else if(playerSelection === 'scissors' && computerSelection === 'rock' || playerSelection === 'rock' && computerSelection === 'paper' || playerSelection === 'paper' && computerSelection === 'scissors'){
                     playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
                     computerSelection = computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1);
 
-                    outcome = 'You Lose! ' + computerSelection + ' beats ' + playerSelection;
-                
+                    console.log(outcome = 'You Lose! ' + computerSelection + ' beats ' + playerSelection);
+                    winner = 2;
+
                 }else{
                     playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
                     computerSelection = computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1);
 
-                    outcome = 'Draw! ' + playerSelection + ' is the same as ' + computerSelection;
+                    console.log(outcome = 'Draw! ' + playerSelection + ' is the same as ' + computerSelection);
+                    winner = 3;
                 }
-                return outcome;
+                return winner;
             }
+
+            function game(){
+                let playerWin = 0;
+                let computerWin = 0;
+
+                for (let i = 0; i < 5; i++){
+                    let playerInput = prompt('Enter either Rock, Paper or Scissors');
+            
+                    if (playerInput.toLowerCase() == 'rock' || playerInput.toLowerCase() == 'paper' || playerInput.toLowerCase() == 'scissors' ){
+                        
+                        let a = playRound(playerInput, computerPlay());
+
+                        if(a == 1){
+                            playerWin++;
+                            /*console.log(playerWin);*/
+
+                        }else if(a == 2){
+                            computerWin++;
+                            /*console.log(computerWin);*/
+
+                        }else if(playRound == 3){
+                            if(i < 0){
+                                i = 0;
+                            }else{
+                                i--;
+                            }
+                        }
+                        
+                    }else{
+                        alert('Incorrect input!');
+                        if(i < 0){
+                            i = 0;
+                        }else{
+                            i--;
+                        }
+                    }
+                }
+
+                if(playerWin > computerWin){
+                    alert('Congratulations! You Won.');
+                }else if(playerWin < computerWin){
+                    alert('HA HA! You Lose.');
+                }else{
+                    alert('You Suck! You Drew. How?');
+                }
+
+                console.clear();
+                game();
+
+            }
+
+            game();
 
             /* To check whether the output would be random each time
             console.log(computerPlay());
